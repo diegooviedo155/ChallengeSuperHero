@@ -11,3 +11,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.card-text{
+  font-size:.8rem;
+  padding: 2px 4px
+}
