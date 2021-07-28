@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import DetallesyEliminar from '../components/DetallesyEliminar'
+// import DetallesyEliminar from '../components/DetallesyEliminar'
 import MyHero from '../components/MyHero'
 import Navbar from '../components/Navbar'
 
@@ -22,7 +22,6 @@ const Home = () => {
                 <div className="col">
                     <div className="card" style={{ width: "12rem" }} >
                         <MyHero h={h} />
-                        <DetallesyEliminar h={h} />
                     </div>
                 </div>
             </div>

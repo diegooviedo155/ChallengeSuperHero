@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React from 'react'
+import DetallesyEliminar from './DetallesyEliminar'
 
 const MyHero = ({ h }) => {
 
@@ -6,7 +7,7 @@ const MyHero = ({ h }) => {
         <div>
                 <img src={h.image.url} className="card-img-top " style={{ height: "10rem" }} alt={h.image.url} />
                 <div className="card-body">
-                    <h5 className="card-title ">{h.name}</h5>
+                    <h5 className="card-title ">{h.id}: {h.name}</h5>
                     <ul className="list-group list-group-flush" >
                         <li className="card-text list-group-item">Combate: {h.powerstats.combat}</li>
                         <li className="card-text list-group-item">Durabilidad: {h.powerstats.durability}</li>
@@ -16,6 +17,8 @@ const MyHero = ({ h }) => {
                         <li className="card-text list-group-item">Fuerza: {h.powerstats.strength}</li>
                     </ul>
                 </div>
+                <DetallesyEliminar h={h} />
+
             </div>
     )
 }
