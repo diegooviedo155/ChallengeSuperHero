@@ -11,11 +11,12 @@ function App() {
   useEffect(() => {
     const loggedUserJson = window.localStorage.getItem('loggedAppUser')
     if (loggedUserJson) {
-      const User = JSON.parse(loggedUserJson)
-      setToken(User)
+      setToken(JSON.parse(loggedUserJson))
     }
-    // window.localStorage.setItem("heroe",{})
   }, [])
+
+
+
   return (
     <Router className="App">
       {

@@ -1,7 +1,7 @@
 import React from 'react'
 import DetallesyEliminar from './DetallesyEliminar'
 
-const MyHero = ({ h }) => {
+const MyHero = ({ h, eliminarHeroes }) => {
 
     return (
         <div>
@@ -17,8 +17,7 @@ const MyHero = ({ h }) => {
                         <li className="card-text list-group-item">Fuerza: {h.powerstats.strength}</li>
                     </ul>
                 </div>
-                <DetallesyEliminar h={h} />
-
+                <DetallesyEliminar h={h} eliminarHeroes={eliminarHeroes}/>
             </div>
     )
 }

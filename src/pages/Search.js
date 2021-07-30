@@ -10,6 +10,7 @@ const Search = ({ mygroup, setMygroup }) => {
 
     useEffect(() => {
         window.localStorage.setItem('heroes', JSON.stringify(mygroup)) 
+        console.log(mygroup)
     }, [mygroup])
 
 

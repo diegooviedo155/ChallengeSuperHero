@@ -3,7 +3,7 @@ import React from 'react'
 
 const Hero = ({ h, setMygroup, mygroup}) => {
 
-    function handleClick(e){
+    function handleClick(){
         setMygroup([...mygroup,h])
     }
     

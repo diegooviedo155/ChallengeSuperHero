@@ -1,17 +1,24 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-const DetallesyEliminar = ({h}) => {
-
+const DetallesyEliminar = ({h,eliminarHeroes}) => {
+    const [name,setName] = useState(h.name.replace(/ /g,"-"))
     const [staticBackdropLabel, setstaticBackdropLabel] = useState(h.id)
-    const [staticBackdrop, setstaticBackdrop] = useState(h.name)
-    const [idstaticBackdropLabel, setidstaticBackdropLabel] = useState(`#${h.name}`)
+    const [staticBackdrop, setstaticBackdrop] = useState(name)
+    const [idstaticBackdropLabel, setidstaticBackdropLabel] = useState(`#${name}`)
+
+    useEffect(() => {
+        setName(h.name.replace(/ /g,"-"))
+        setstaticBackdropLabel(h.id)
+        setstaticBackdrop(name)
+        setidstaticBackdropLabel(`#${name}`)
+    },[])
 
 
     return (
         <div>
             <div className="d-flex gap-2 my-2 justify-content-center">
                 <button type="button" className="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target={idstaticBackdropLabel}>Detalle</button>
-                <button type="button" className="btn btn-danger btn-sm" >Eliminar</button>
+                <button type="button" className="btn btn-danger btn-sm" onClick={()=>eliminarHeroes(h.id)}>Eliminar</button>
             </div>
             <div className="modal fade modal-dialog-scrollable" id={staticBackdrop} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex={-1} aria-labelledby={staticBackdropLabel} aria-hidden="true">
                 <div className="modal-dialog">
@@ -37,7 +44,7 @@ const DetallesyEliminar = ({h}) => {
                             </ul>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" className="btn btn-secondary" data-bs-dismiss="modal" >Close</button>
                         </div>
                     </div>
                 </div>

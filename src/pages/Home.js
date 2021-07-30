@@ -7,21 +7,27 @@ const Home = () => {
 
     const [myhero, setMyhero] = useState([])
     const Buscar = false
+    
+    const eliminarHeroes = (id) => {
+        const newHeroes = myhero.filter(h=> id !== h.id)
+        window.localStorage.setItem('heroes', JSON.stringify(newHeroes))
+        setMyhero(newHeroes)
+    }
 
     useEffect(() => {
         const heroesJson = window.localStorage.getItem('heroes')
         if (heroesJson) {
-            const Heroe = JSON.parse(heroesJson)
-            setMyhero(Heroe)
+            setMyhero(JSON.parse(heroesJson))
         }
     }, [])
 
+
     const muestraHeroes = () => {
-        return myhero.map((h, i) => (
-            <div className="col " key={i}>
+        return myhero.map( h => (
+            <div className="col " key={h.id}>
                 <div className="col">
                     <div className="card" style={{ width: "12rem" }} >
-                        <MyHero h={h} />
+                        <MyHero h={h} eliminarHeroes={eliminarHeroes}/>
                     </div>
                 </div>
             </div>
@@ -36,7 +42,6 @@ const Home = () => {
                 <div className="row row-cols-2 row-cols-lg-5 g-2 g-lg-3">
                     {muestraHeroes()}
                 </div>
-
             </div>
         </div>
     )
